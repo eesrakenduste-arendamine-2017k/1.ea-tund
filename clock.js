@@ -12,6 +12,19 @@ window.onload = function(){
         clockContainer.innerHTML = getCurrentDateTime();
     }, 1000);
 
+    // e on ise määratud muutuja nimi
+    window.addEventListener("keypress", function(e){
+        console.log(e);
+
+        if (e.charCode == 13) {
+            console.log('Keegi vajutas Enter klahvi');
+        }
+    });
+
+    var clickMeButton = document.getElementById("click-me-button");
+    clickMeButton.addEventListener('click', function(){
+        clickMeButton.style.display = "none";
+    });
 
 };
 
@@ -34,3 +47,9 @@ function addZeroBefore(dateNumber) {
 
     return dateNumber;
 }
+
+/*
+for(var i = 0; i < links.length; i++){
+ 	links[i].href = "#";
+}
+*/
