@@ -1,3 +1,6 @@
+//avalikud muutujad
+var firstname;
+var last;
 
 // aken laetud
 window.onload = function(){
@@ -26,6 +29,30 @@ window.onload = function(){
         clickMeButton.style.display = "none";
     });
 
+    addAuthor("Romil Rõbtšenkov");
+    window.addEventListener('mousemove', function(){
+        //10-40
+        //var first = document.querySelectorAll('span')[0];
+        console.log(firstname);
+
+        console.log(Math.round(10+(Math.random()*5)));
+        firstname.style.fontSize = Math.round(10+(Math.random()*30))+"px";
+
+        //var last = document.querySelectorAll('span')[1];
+
+        var randomRGB = "rgb("+Math.round(Math.random()*255)+","+Math.round(Math.random()*255)+","+Math.round(Math.random()*255)+")";
+        last.style.color = randomRGB;
+    });
+
+    window.addEventListener('dblclick', function(){
+        var clockDiv = document.getElementById('clock');
+        console.log(clockDiv);
+        if(clockDiv.className == "big"){
+            clockDiv.className = "small";
+        }else{
+            clockDiv.className = "big";
+        }
+    });
 };
 
 var getCurrentDateTime = function(){
@@ -46,6 +73,23 @@ function addZeroBefore(dateNumber) {
     }
 
     return dateNumber;
+}
+
+function addAuthor(name){
+
+    firstname = document.createElement('span');
+    firstname.innerHTML = name.split(" ")[0];
+    last = document.createElement('span');
+    last.innerHTML = name.split(" ")[1];
+
+    var p = document.createElement('p');
+    p.appendChild(firstname);
+    var space = document.createElement('span');
+    space.innerHTML=" ";
+    p.appendChild(space);
+    p.appendChild(last);
+
+    document.body.appendChild(p);
 }
 
 /*
